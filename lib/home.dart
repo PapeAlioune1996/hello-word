@@ -9,10 +9,25 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   var messages=const [
-    'Que sais tu de volkeno'
-    ,'Une initiative tres professionnel'
-    ,'Mon premier projet flutter'
-    ,'Merci volkeno'
+    {
+      'subjet':'',
+      'body':''
+    },
+    {
+      'subjet':'',
+      'body':''
+    },
+    {
+      'subjet':'',
+      'body':''
+    },
+    {
+      'subjet':'',
+      'body':''
+    },{
+      'subjet':'',
+      'body':''
+    }
   ];
 
     return Scaffold(
@@ -28,7 +43,7 @@ class Home extends StatelessWidget {
         itemCount:messages.length,
         itemBuilder:(BuildContext context,int index)
         {
-          var title=messages[index];
+          var message=messages[index];
           return ListTile(
             //a la fin
 
@@ -39,8 +54,8 @@ class Home extends StatelessWidget {
             leading: CircleAvatar(
               child:Text('VK'),
             ),
-            title: Text(title),
-            subtitle: Text('Another Text'),
+            title: Text(message['subjet']),
+            subtitle: Text(message['body']),
           );
         }
         
