@@ -1,19 +1,48 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-class Home extends StatelessWidget {
-  final String title;
+class Home extends StatefulWidget {
+   final String title;
 
   const Home({Key key, this.title}) : super(key: key);
   
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var messages=const [];
+
+void initState()
+{
+  loadMessageList();
+  super.initState();
+
+}
+
+Future loadMessageList() async
+{
+  var content= await rootBundle.loadString('data/messages.json');
+   var collection=json.decode(content);
+  //request and get
+  setState(() {
+    messages=collection;
+  });
+}
+
   @override
   Widget build(BuildContext context) {
-  var messages=const [];
+  
 
     return Scaffold(
       appBar: AppBar(
         
-        title: Text(title
+        title: Text(
+         widget.title
         ),
       ),
 
