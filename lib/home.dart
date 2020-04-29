@@ -55,7 +55,11 @@ class Home extends StatelessWidget {
               child:Text('VK'),
             ),
             title: Text(message['subjet']),
-            subtitle: Text(message['body']),
+            subtitle: Text(
+              message['body'],
+              overflow: TextOverflow.ellipsis,
+              
+            ),
           );
         }
         
