@@ -8,27 +8,7 @@ class Home extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-  var messages=const [
-    {
-      'subjet':'Que savez vous de volkeno?',
-      'body':'volkeno c est une organ'
-    },
-    {
-      'subjet':'',
-      'body':''
-    },
-    {
-      'subjet':'',
-      'body':''
-    },
-    {
-      'subjet':'',
-      'body':''
-    },{
-      'subjet':'',
-      'body':''
-    }
-  ];
+  var messages=const [];
 
     return Scaffold(
       appBar: AppBar(
