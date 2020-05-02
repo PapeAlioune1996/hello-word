@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
           separatorBuilder: (context, index) => Divider(),
           itemCount: messages.length,
           itemBuilder: (BuildContext context, int index) {
-            var message = messages[index];
+            Messages message = messages[index];
             return ListTile(
               //trailing: Text('Z'),
               isThreeLine: true,
@@ -50,9 +50,9 @@ class _HomeState extends State<Home> {
               leading: CircleAvatar(
                 child: Text('VK'),
               ),
-              title: Text(message['subjet']),
+              title: Text(message.subjet),
               subtitle: Text(
-                message['body'],
+                message.body,
                 overflow: TextOverflow.ellipsis,
               ),
             );
