@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:passepartout/Message.dart';
 
 class Home extends StatefulWidget {
   final String title;
@@ -22,8 +23,8 @@ class _HomeState extends State<Home> {
   }
 
   Future loadMessageList() async {
-    var content = await rootBundle.loadString('data/messages.json');
-    var collection = json.decode(content);
+    String content = await rootBundle.loadString('data/messages.json');
+    List<Messages> collection = json.decode(content);
     //request and get
     setState(() {
       messages = collection;
