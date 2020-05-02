@@ -5,7 +5,7 @@ class Messages{
   Messages(this.subjet, this.body);
 
   //creer un autre constructeur
-  Messages.fromJson(Map<dynamic,String> json) :
+  Messages.fromJson(Map<String,dynamic> json) :
       subjet=json['subjet'],
       body=json['body'];
 

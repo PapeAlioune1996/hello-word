@@ -24,10 +24,12 @@ class _HomeState extends State<Home> {
 
   Future loadMessageList() async {
     String content = await rootBundle.loadString('data/messages.json');
-    List<Messages> collection = json.decode(content);
+    List collection = json.decode(content);
+    List<Messages> _message=collection.map((json)=>Messages.fromJson(json)).toList();
+
     //request and get
     setState(() {
-      messages = collection;
+      messages = _message;
     });
   }
 
