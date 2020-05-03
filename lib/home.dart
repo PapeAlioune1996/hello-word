@@ -41,6 +41,8 @@ class _HomeState extends State<Home> {
     //request and get
     setState(() {
       messages = _message;
+      //si sa persiste
+      isLoading=false;
     });
   }
 
@@ -50,7 +52,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.separated(
+      body: isLoading ? Center(child:CircularProgressIndicator() ,) 
+      : ListView.separated(
           //Listview dynamic
           separatorBuilder: (context, index) => Divider(),
           itemCount: messages.length,
