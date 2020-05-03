@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:passepartout/Message.dart';
+import 'package:passepartout/MessageDetail.dart';
 
 
 class Home extends StatefulWidget {
@@ -74,12 +75,23 @@ class _HomeState extends State<Home> {
                 message.body,
                 overflow: TextOverflow.ellipsis,
               ),
+              onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: (BuildContext context){
+                  return MessageDetails();
+                }
+                 ));
+              },
+
             );
           });
          }
         },
         
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add), 
+        onPressed: () {},
+        ),
       //isLoading ? Center(child:CircularProgressIndicator() ,) 
       //  
     );
