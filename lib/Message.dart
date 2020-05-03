@@ -10,6 +10,6 @@ class Messages{
 
   //creer un autre constructeur
   factory Messages.fromJson(Map<String,dynamic> json) =>
-     $MessagesFromJson(json);
+     _$MessagesFromJson(json);
 
 }
