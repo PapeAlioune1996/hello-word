@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
+import 'package:passepartout/ComposeButton.dart';
 import 'package:passepartout/Message.dart';
 import 'package:passepartout/MessageComposed.dart';
 import 'package:passepartout/MessageDetail.dart';
@@ -88,14 +89,7 @@ class _HomeState extends State<Home> {
         },
         
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add), 
-        onPressed: () {
-           Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => MessageCompose(),
-                
-                 ));
-        },
-        ),
+      floatingActionButton: ComposeButton(),
       //isLoading ? Center(child:CircularProgressIndicator() ,) 
       //  
     );
