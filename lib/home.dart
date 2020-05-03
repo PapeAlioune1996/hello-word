@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:passepartout/Message.dart';
+import 'package:passepartout/MessageComposed.dart';
 import 'package:passepartout/MessageDetail.dart';
 
 
@@ -76,9 +77,8 @@ class _HomeState extends State<Home> {
                 overflow: TextOverflow.ellipsis,
               ),
               onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (BuildContext context){
-                  return MessageDetails();
-                }
+                Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => MessageDetails(messages.subjet,messages.body),
+                
                  ));
               },
 
@@ -90,7 +90,11 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add), 
-        onPressed: () {},
+        onPressed: () {
+           Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => MessageCompose(),
+                
+                 ));
+        },
         ),
       //isLoading ? Center(child:CircularProgressIndicator() ,) 
       //  
