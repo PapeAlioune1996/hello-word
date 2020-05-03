@@ -1,3 +1,7 @@
+import 'package:json_annotation/json_annotation.dart';
+part 'Message.g.dart';
+
+@JsonSerializable()
 class Messages{
   final String subjet;
   final String body;
