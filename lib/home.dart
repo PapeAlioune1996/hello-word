@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var messages = const [];
+  List<Messages> messages = const [];
 
   void initState() {
     loadMessageList();
@@ -25,11 +25,14 @@ class _HomeState extends State<Home> {
 
   Future loadMessageList() async {
     //String content = await rootBundle.loadString('data/messages.json');
-   http.Response response=await http.get(' http://www.mocky.io/v2/5eaf0b203300004b009f42e7');
-    String content=response.body;
-    
+    http.Response response =
+        await http.get('http://www.mocky.io/v2/5eaf0b203300004b009f42e7');
+
+    String content = response.body;
+
     List collection = json.decode(content);
-    List<Messages> _message=collection.map((json)=>Messages.fromJson(json)).toList();
+    List<Messages> _message =
+        collection.map((json) => Messages.fromJson(json)).toList();
 
     //request and get
     setState(() {
