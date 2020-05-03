@@ -16,44 +16,47 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Messages> messages = const [];
+  Future<List<Messages>> messages;
   bool isLoading =true;
 
-  void initState() {
-    loadMessageList();
+  //Future loadMessageList() async {
+   //List<Messages> _message=await Messages.browse();
+    @override
+    void initState() {
+    //loadMessageList();
     super.initState();
+    messages=Messages.browse();
   }
-
-  Future loadMessageList() async {
-    //String content = await rootBundle.loadString('data/messages.json');
-    http.Response response =
-        await http.get('http://www.mocky.io/v2/5eaf0b203300004b009f42e7');
-         
-         //une pause de 3 secondes avant que les messages apparaissent
-         await Future.delayed(Duration(seconds: 3));
-      
-    String content = response.body;
-
-    List collection = json.decode(content);
-    List<Messages> _message =
-        collection.map((json) => Messages.fromJson(json)).toList();
-
-    //request and get
-    setState(() {
-      messages = _message;
-      //si sa persiste
-      isLoading=false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.refresh), onPressed: (){
+            var _message=Messages.browse();
+            setState(() {
+              messages=_message;
+            });
+          })
+        ],
       ),
-      body: isLoading ? Center(child:CircularProgressIndicator() ,) 
-      : ListView.separated(
+      body: FutureBuilder(
+        future: messages,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+
+         switch(snapshot.connectionState)
+         {
+           case ConnectionState.none:
+           case ConnectionState.waiting:
+           case ConnectionState.active:
+           return Center(child:CircularProgressIndicator(),);
+           case ConnectionState.done:
+           if(snapshot.error)
+           return Text("Erreur : {$snapshot.error}");
+           var messages=snapshot.data;
+           return
+            ListView.separated(
           //Listview dynamic
           separatorBuilder: (context, index) => Divider(),
           itemCount: messages.length,
@@ -72,7 +75,13 @@ class _HomeState extends State<Home> {
                 overflow: TextOverflow.ellipsis,
               ),
             );
-          }),
+          });
+         }
+        },
+        
+      )
+      //isLoading ? Center(child:CircularProgressIndicator() ,) 
+      //  
     );
   }
 }
