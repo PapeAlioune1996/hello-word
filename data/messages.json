@@ -1,9 +1,4 @@
 [
-    {
-        "subjet":"Que savez vous de volkeno?",
-        "body":"volkeno c est une organ"
-      },
-     
       {
         "subjet":"Stateless & Stateful Widgets",
         "body":"Flutter is pretty similar to React or Vue.js. The notion of Component is replaced by a notion of Widget, which is basically the same thing. Similarly, we distinguish Widgets that have state as Stateful Widgets (Smart Components in React) and those without state are Stateless Widgets (Dumb Components in React)."
@@ -13,6 +8,13 @@
         "body":"One of the most common and import ways to interact with a mobile application is simply by using lists. In Flutter, listing elements on screen is extremely easy thanks to the ListView widget."
       },
       {
+        "subjet":"Assets",
+        "body":"A mobile device is slightly different than a web page. If there is a need to display images or handle data files that accessible offline, those need to be store on that device as assets."
+      },
+      {
+        "subjet":"Using Types in Dart",
+        "body":"Types allows to provide a clear intent in our code. They improve the coding experience on the lower level and at the micro scale. Dart, the language used by Flutter, is not only statically typed, but it also provides a sophisticated type inference - a way for the compiler to guess types for you."
+      },{
         "subjet":"Assets",
         "body":"A mobile device is slightly different than a web page. If there is a need to display images or handle data files that accessible offline, those need to be store on that device as assets."
       },

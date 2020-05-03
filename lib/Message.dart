@@ -20,7 +20,7 @@ class Messages{
      
     //String content = await rootBundle.loadString('data/messages.json');
     http.Response response =
-        await http.get('http://www.mocky.io/v2/5eaf0b203300004b009f42e7');
+        await http.get('http://www.mocky.io/v2/5eaf25173300008f129f433f');
          
          //une pause de 3 secondes avant que les messages apparaissent
          await Future.delayed(Duration(seconds: 3));
